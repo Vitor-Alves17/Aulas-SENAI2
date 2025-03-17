@@ -1,3 +1,5 @@
+package Aula3;
+
 import java.util.Scanner;
 
 public class Troco {
@@ -8,7 +10,7 @@ public class Troco {
 
         System.out.println("Me fale o preço do produto: ");
         pre = sc.nextDouble();
-        System.out.println("Me fale a quantide a ser comprada desse produto: ");
+        System.out.println("Me fale a quantidade a ser comprada desse produto: ");
         quan = sc.nextDouble();
         sc.nextLine();
         System.out.println("Qual foi o valor entregue pelo cliente? ");

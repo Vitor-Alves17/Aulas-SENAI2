@@ -8,18 +8,18 @@ public class Guess {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
 
-        double guess, random;
+        int guess, random;
         boolean guessed = false;
-        random = rand.nextDouble(11);
+        random = rand.nextInt(11);
         System.out.println("Vamos jogar um jogo e adivinhação? ");
         System.out.println("Tente adivinhar um número de 0 a 10 ");
-        guess = sc.nextDouble();
+        guess = sc.nextInt();
 
 
         while (guessed == false) {
             if (guess != random) {
                 System.out.print("Errou!");
-                guess = sc.nextDouble();
+                guess = sc.nextInt();
             }else {
                 System.out.println("Acertou!!!");
                 guessed = true;

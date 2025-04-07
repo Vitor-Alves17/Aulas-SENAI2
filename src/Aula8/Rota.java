@@ -11,16 +11,13 @@ public class Rota {
         for (int i = 0; i < 5; i++) {
             a[i] = sc.nextInt();
         }
+        int[] z = {a[0], a[1], a[2], a[3], a[4]};
         int b = a[a.length - 1];
         for (int i = 1; i < a.length; i++) {
-            int j = 1;
-            if (j >= b - 1) {
-                break;
-            }else{
-            a[j] = a[i];
-            }
+        a[i] = z[i - 1];
         }
         a[0] = b;
         System.out.println(Arrays.toString(a));
+
     }
 }

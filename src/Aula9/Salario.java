@@ -36,6 +36,10 @@ public class Salario {
 
         System.out.println("O funcionário possui direito à vale transpote? (1 para sim, 0 para não): ");
         int ver = sc.nextInt();
+        while (ver != 0 && ver != 1){
+            System.out.println("Número inválido! Digite novamente: ");
+            ver = sc.nextInt();
+        }
         if (ver == 1){
             vt = sa * 0.06;
         }else {
@@ -43,12 +47,20 @@ public class Salario {
         }
         System.out.println("O funcionário possui direito à vale alimentação? (1 para sim, 0 para não): ");
          ver = sc.nextInt();
+        while (ver != 0 && ver != 1){
+            System.out.println("Número inválido! Digite novamente: ");
+            ver = sc.nextInt();
+        }
          if (ver == 1){
              va = 200.00;
          }else {
              va = 0;
          }
         System.out.println("O funcionário possui direito à vale refeição? (1 para sim, 0 para não): ");
+         while (ver != 0 && ver != 1){
+             System.out.println("Número inválido! Digite novamente: ");
+             ver = sc.nextInt();
+         }
          ver = sc.nextInt();
          if (ver == 1){
              vr = 250.00;
@@ -58,6 +70,10 @@ public class Salario {
 
         System.out.println("O funcionário possui direito à plano de saúde (1 para sim, 0 para não)? ");
          ver = sc.nextInt();
+        while (ver != 0 && ver != 1){
+            System.out.println("Número inválido! Digite novamente: ");
+            ver = sc.nextInt();
+        }
          if (ver == 1){
              System.out.println("O plano é simples ou avançado? (1 para simples, 0 para avançado): ");
              ver = sc.nextInt();

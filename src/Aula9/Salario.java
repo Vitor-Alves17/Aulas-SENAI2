@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Salario {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        //Trabalho de Lyan Brito e Vitor Alves
         double sa;
         //Aqui criamos a variável do salário chamada de "sa". pedimos ao usuário para entrar o valor do sálario
         System.out.println("Digite o sário do funcionário: ");

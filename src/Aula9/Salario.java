@@ -34,8 +34,14 @@ public class Salario {
             ir = sa * 0.275;
         }
         //A senquencia de códigos abaixo é ultilizado para que o usuário possa definir se o funcionário possui direito os beneficios ao não
+        //A pergunta referente ao direito dos funcionários aos benefícios é respondido com 1 ou 0 para melhor eficiência e menor margem de erro. Não afeta diretamente no funcionamento do código. Por isso optamos por essa abordagem.
+        //Os blocos de while servem para garantir que o usuário só consiga finalizar o código colocando 1 ou 0
         System.out.println("O funcionário possui direito à vale transpote? (1 para sim, 0 para não): ");
         int ver = sc.nextInt();
+        while (ver != 1 && ver != 0) {
+            System.out.println("Número digitado inválido! Digite um número (1 para sim, 0 para não): ");
+            ver = sc.nextInt();
+        }
         if (ver == 1){
             vt = sa * 0.06;
         }else {
@@ -43,6 +49,10 @@ public class Salario {
         }
         System.out.println("O funcionário possui direito à vale alimentação? (1 para sim, 0 para não): ");
          ver = sc.nextInt();
+            while (ver != 1 && ver != 0) {
+                System.out.println("Número digitado inválido! Digite um número (1 para sim, 0 para não): ");
+                ver = sc.nextInt();
+            }
          if (ver == 1){
              va = 200.00;
          }else {
@@ -50,6 +60,10 @@ public class Salario {
          }
         System.out.println("O funcionário possui direito à vale refeição? (1 para sim, 0 para não): ");
          ver = sc.nextInt();
+        while (ver != 1 && ver != 0){
+            System.out.println("Número digitado inválido! Digite um número (1 para sim, 0 para não): ");
+            ver = sc.nextInt();
+        }
          if (ver == 1){
              vr = 250.00;
          }else {
@@ -58,9 +72,17 @@ public class Salario {
 
         System.out.println("O funcionário possui direito à plano de saúde (1 para sim, 0 para não)? ");
          ver = sc.nextInt();
+         while (ver != 1 && ver != 0){
+             System.out.println("Número digitado inválido! Digite um número (1 para sim, 0 para não): ");
+             ver = sc.nextInt();
+         }
          if (ver == 1){
              System.out.println("O plano é simples ou avançado? (1 para simples, 0 para avançado): ");
              ver = sc.nextInt();
+             while (ver != 1 && ver != 0){
+                 System.out.println("Número digitado inválido! Digite um número (1 para sim, 0 para não): ");
+                 ver = sc.nextInt();
+             }
              if (ver == 1){
                  ps = 150.00;
              }else if (ver == 0){
@@ -69,7 +91,7 @@ public class Salario {
          } else {
              ps = 0;
          }
-        //Aqui é feito a soma de todos os decontos cabíveis ao funcionário. Por fim, o código exibe a porcentagem de desconto do sálario e valor do sálario líquido.
+        //Aqui é feito a soma de todos os decontos cabíveis ao funcionário (o resultado dessa soma é armazenada na variável soma). Por fim, o código exibe a porcentagem de desconto do sálario e valor do sálario líquido.
          double soma =  inss + ir + va + vr + ps + vt;
         System.out.println("O percentual de desconto sobre o salário desse funcionário é de " + String.format("%.2f", ((soma * 100) / sa)) + "%");
         System.out.println("Salário líquido do funcionário: " + "R$" + String.format("%.2f", (sa - soma)));

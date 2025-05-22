@@ -31,11 +31,45 @@ public class Grimo {
             }
         }while(ver == true);
         //System.out.println(grimos);
-
+        ver = true;
         System.out.println("Agora que seu grimório está completo, você deseja buscar algum de seus feitiços? (s/n): ");
         ver2 = sc.nextLine();
-        while (!ver2.equals("s") && !ver2.equals("n")) {
-
+        while (ver == true) {
+            if (!ver2.equals("s") && !ver2.equals("n")){
+                System.out.println("Digito inválido. Tente novamente: ");
+                ver2 = sc.nextLine();
+                ver = false;
+                return;
+            } else if (ver2.equals("s")) {
+                ver = true;
+                System.out.println("Qual feitiço deseja buscar? ");
+                String fei = sc.nextLine();
+                boolean ver3 = true;
+                while(ver == true){
+                    for (int i = 0; i < grimos.size(); i++){
+                        if(fei.equals(grimos.get(i))){
+                            System.out.println("Feitiço " + grimos.get(i) + " localizado na posição " + (i + 1));
+                        }else {
+                            ver3 = false;
+                        }
+                        if (ver3 == false){
+                            System.out.println("Feitiço não encontrado");
+                        }
+                        System.out.println("Deseja buscar mais algum feitiço? (s/n): ");
+                        ver2 = sc.nextLine();
+                        while (!ver2.equals("s") && !ver2.equals("n")){
+                            System.out.println("Digito inválido. Tente novamente: ");
+                            ver2 = sc.nextLine();
+                        }
+                        if (ver2.equals("s")){
+                            System.out.println("Qual feitiço deseja procurar agora? ");
+                            fei = sc.nextLine();
+                        } else if (ver2.equals("n")) {
+                            return;
+                        }
+                    }
+                }
+            }
         }
     }
 }

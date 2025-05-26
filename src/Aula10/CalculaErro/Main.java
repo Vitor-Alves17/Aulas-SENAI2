@@ -1,5 +1,6 @@
 package Aula10.CalculaErro;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -29,13 +30,13 @@ public class Main {
         }
         while (ver == 1 || ver == 2 || ver == 3 || ver == 4) {
             if (ver == 1){
-                System.out.println("Resultado: " + (a + b + erro(a + b)));
+                System.out.println("Resultado: " + String.format("%.2f", (a + b + erro(a + b))));
             } else if (ver == 2) {
-                System.out.println("Resultado: " + (a - b + erro(a - b)));
+                System.out.println("Resultado: " + String.format("%.2f", (a - b + erro(a - b))));
             } else if (ver == 3) {
-                System.out.println("Resultado: " + (a * b + erro(a * b)));
+                System.out.println("Resultado: " + String.format("%.2f", (a * b + erro(a * b))));
             } else if (ver == 4) {
-                System.out.println("Resultado: " + (a / b + erro(a / b)));
+                System.out.println("Resultado: " + String.format("%.2f", (a / b + erro(a / b))));
             }
             System.out.println("""
                     
@@ -58,7 +59,9 @@ public class Main {
         }
     }
     public static double erro(double a){
-        double b = a / 100;
+        Random r = new Random();
+        double c = r.nextDouble(1000) + 100;
+        double b = a / c;
         return b;
     }
 }

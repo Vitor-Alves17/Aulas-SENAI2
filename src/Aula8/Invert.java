@@ -12,7 +12,7 @@ public class Invert {
         }
         int max = a.length - 1;
         for (int i = 0; i < a.length; i++) {
-            System.out.println(a[max]);
+            System.out.print(a[max] + " ");
             max--;
         }
     }

@@ -11,7 +11,6 @@ public class Salario {
         sa = sc.nextDouble();
         //ir = imposto de renda, vt = vale transporte, va = vale alimentação, vr = vale refeição, ps = plano de saúde
         double inss, ir, vt = 0, va = 0, vr = 0, ps = 0;
-
         if (sa <= 1303.00){
             inss = sa * 0.08;
         } else if (sa  <= 2571.00){
@@ -33,7 +32,6 @@ public class Salario {
         }else {
             ir = sa * 0.275;
         }
-
         System.out.println("O funcionário possui direito à vale transpote? (1 para sim, 0 para não): ");
         int ver = sc.nextInt();
         if (ver == 1){
@@ -69,9 +67,7 @@ public class Salario {
          } else {
              ps = 0;
          }
-
          double soma =  inss + ir + va + vr + ps + vt;
-        System.out.println("O percentual de desconto sobre o salário desse funcionário é de " + ((soma * 100) / sa) + "%");
         System.out.println("Salário líquido do funcionário: " + "R$" + String.format("%.2f", (sa - soma)));
     }
 }

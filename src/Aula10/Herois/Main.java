@@ -1,41 +1,68 @@
 package Aula10.Herois;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-    ArrayList<ArrayList<Object>> HePo = new ArrayList<>();
-    ArrayList<Object> herois = new ArrayList<>();
-    ArrayList<Object> poder = new ArrayList<>();
-    ArrayList<Object> velocidade = new ArrayList<>();
-    ArrayList<Object> resitencia = new ArrayList<>();
-    int ver = 1;
 
-    do{
-        System.out.println("Adicione o herói:" );
-        herois.add(sc.next());
-        System.out.println("Adicione o poder: ");
-        poder.add(sc.nextDouble());
-        System.out.println("Adicione a velocidade: ");
-        velocidade.add(sc.nextDouble());
-        System.out.println("Adicione a resistência: ");
-        resitencia.add(sc.nextDouble());
+        static class Heroi {
+            String nome;
+            double poder;
+            double velocidade;
+            double resistencia;
 
-        System.out.println("Deseja adicionar outro heroi? \n Não -> 0 \n Sim -> 1");
-        ver = sc.nextInt();
-        }while(ver != 0);
-    HePo.add(herois);
-    HePo.add(poder);
-    HePo.add(velocidade);
-    HePo.add(resitencia);
-    System.out.println(HePo);
+            public Heroi(String nome, double poder, double velocidade, double resistencia) {
+                this.nome = nome;
+                this.poder = poder;
+                this.velocidade = velocidade;
+                this.resistencia = resistencia;
+            }
 
-    for(int i = 0; i < HePo.get(0).size(); i++){
+            public double poderTotal() {
+                return poder + velocidade + resistencia;
+            }
 
+            @Override
+            public String toString() {
+                return nome + " - Poder Total: " + poderTotal();
+            }
         }
-    }
 
-    }
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            ArrayList<Heroi> herois = new ArrayList<>();
+            Map<String, Heroi> mapaHerois = new HashMap<>();
+
+            int ver;
+            do {
+                System.out.println("Adicione o nome do herói:");
+                String nome = sc.next();
+
+                System.out.println("Adicione o poder:");
+                double poder = sc.nextDouble();
+
+                System.out.println("Adicione a velocidade:");
+                double velocidade = sc.nextDouble();
+
+                System.out.println("Adicione a resistência:");
+                double resistencia = sc.nextDouble();
+
+                Heroi heroi = new Heroi(nome, poder, velocidade, resistencia);
+                herois.add(heroi);
+                mapaHerois.put(nome.toLowerCase(), heroi);
+
+                System.out.println("Deseja adicionar outro herói? (0 = Não / 1 = Sim)");
+                ver = sc.nextInt();
+
+            } while (ver != 0);
+
+            herois.sort((h1, h2) -> Double.compare(h2.poderTotal(), h1.poderTotal()));
+
+            System.out.println("\n--- Ranking de Heróis ---");
+            for (int i = 0; i < herois.size(); i++) {
+                System.out.println((i + 1) + "º - " + herois.get(i));
+            }
+        }
 }

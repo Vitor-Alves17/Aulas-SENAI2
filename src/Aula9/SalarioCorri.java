@@ -20,9 +20,11 @@ public class SalarioCorri {
         //Os métodos abaixo calcula automaticamente o valor do INSS e do imposto de Renda baseando-se no valor do sálario do funcionáraio
        inss = cal.inssCal(sa);
        ir = cal.irCal(sa, depe);
+
         //A senquencia de códigos abaixo é ultilizado para que o usuário possa definir se o funcionário possui direito os beneficios ao não
         //A pergunta referente ao direito dos funcionários aos benefícios é respondido com 1 ou 0 para melhor eficiência e menor margem de erro. Não afeta diretamente no funcionamento do código. Por isso optamos por essa abordagem.
         //Os blocos de while servem para garantir que o usuário só consiga finalizar o código colocando 1 ou 0
+
         System.out.println("O funcionário possui direito à vale transpote? (1 para sim, 0 para não): ");
         int ver = sc.nextInt();
         while (ver != 1 && ver != 0) {
@@ -45,7 +47,7 @@ public class SalarioCorri {
             System.out.println("Número digitado inválido! Digite um número (1 para sim, 0 para não): ");
             ver = sc.nextInt();
         }
-        vr = cal.vr3(va, ver);
+        vr = cal.vr3(sa, ver);
 
         System.out.println("O funcionário possui direito à plano de saúde (1 para sim, 0 para não)? ");
          ver = sc.nextInt();

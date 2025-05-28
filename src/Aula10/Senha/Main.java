@@ -39,18 +39,22 @@ public class Main {
         boolean ver = false;
 
         for (int i = 0; i < senha.length; i++) {
-            if (Integer.parseInt(String.valueOf(senha[i])) == 2 || Integer.parseInt(String.valueOf(senha[i])) == 3 || Integer.parseInt(String.valueOf(senha[i])) == 5 || Integer.parseInt(String.valueOf(senha[i])) == 7) {
-                ver = true;
-                break;
+            if (Character.isDigit(senha[i])) {
+                int numero = Integer.parseInt(String.valueOf(senha[i]));
+                if (numero == 2 || numero == 3 || numero == 5 || numero == 7) {
+                    ver = true;
+                    break;
+                }
             }
         }
         return ver;
     }
-    public static boolean espe(String senha) {
+
+    public static boolean espe(char[] senha) {
         boolean ver = false;
         
 	for (int i = 0; i < senha.length; i++) {
-		if((Character.isLetterOrDigit(senha[i])){
+		if((Character.isLetterOrDigit(senha[i]))){
 			ver = true;
 		}
 	}
@@ -59,8 +63,8 @@ public class Main {
     }
     public static boolean dupli(char[] senha){
         boolean ver = true;
-        for(int i = 1; i < senha.lenght; i++){
-		    if(senha[i].equals(senha[i-1])){
+        for(int i = 1; i < senha.length; i++){
+		    if(senha[i] == (senha[i-1])){
 		        ver = false;
 		        break;
             }

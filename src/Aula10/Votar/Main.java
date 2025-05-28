@@ -7,18 +7,19 @@ public class Main{
         Scanner sc = new Scanner(System.in);
     System.out.println("Olá!, esse programa serve para efetuar uma votação.");
     System.out.println("Digite a quantidade de candidatos: ");
-    int candi = sc.nextInt;
+    int candi = sc.nextInt();
     String[] candidatos = new String[candi];
     int[] votos = new int[candi];
 
     System.out.println("Agora fale o nome dos candidatos: ");
 for(int i = 0; i < candi; i++){
-    candidatos[i] = sc.next;
+    candidatos[i] = sc.next();
 }
     System.out.println("Agora comecmçar a votação: ");
     for(int i = 0; i < candi; i++){
         System.out.println(candidatos[i] + " -> " + i);
     }
+        int ver = 0;
     do{
         int voto = sc.nextInt();
         votos[voto]++;
@@ -27,7 +28,7 @@ for(int i = 0; i < candi; i++){
                 Sim -> 1
                 NÃ£o -> 2
                 """);
-                int ver = sc.nextInt();
+        ver = sc.nextInt();
                 while (ver != 1 && ver != 2) {
                     System.out.println("Digito inválido, tente novamente: ");
                     ver = sc.nextInt();
@@ -44,7 +45,7 @@ for(int i = 0; i < candi; i++){
     }
     System.out.println("Resultado da votação: ");
     for(int i = 0; i < candi; i++){
-        System.out.println(candidatos[i] + " -> " + votos[i] + ((votos[i] * 100) / total) + "%");
+        System.out.println(candidatos[i] + " -> " + votos[i] + " " + ((votos[i] * 100) / total) + "% dos votos");
     }
 
 

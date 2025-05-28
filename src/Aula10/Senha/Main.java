@@ -16,7 +16,7 @@ public class Main {
             System.out.println("Senha invalida, não possui letra maiúscula!");
         }else if (primo(senhaArray) != true) {
             System.out.println("Senha invalida, não possui número primo!");
-        }else if (espe(senha) != true) {
+        }else if (espe(senhaArray) != true) {
             System.out.println("Senha invalida, não possui caractere especial!");
         }else if (dupli(senhaArray) != true){
             System.out.println("Senha inválida, possui vogais duplicadas seguidas!");

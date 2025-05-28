@@ -48,10 +48,14 @@ public class Main {
     }
     public static boolean espe(String senha) {
         boolean ver = false;
-
-        Pattern especial = Pattern.compile("[!@#$%&*()]");
-        Matcher matcher = especial.matcher(senha);
-        return matcher.find();
+        
+	for (int i = 0; i < senha.length; i++) {
+		if((Character.isLetterOrDigit(senha[i])){
+			ver = true;
+		}
+	}
+            
+        return ver;
     }
     public static boolean dupli(char[] senha){
         boolean ver = true;

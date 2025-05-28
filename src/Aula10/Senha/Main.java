@@ -14,12 +14,14 @@ public class Main {
 
         if (up(senhaArray) != true) {
             System.out.println("Senha invalida, não possui letra maiúscula!");
-        }
-        if (primo(senhaArray) != true) {
+        }else if (primo(senhaArray) != true) {
             System.out.println("Senha invalida, não possui número primo!");
-        }
-        if (espe(senha) != true) {
+        }else if (espe(senha) != true) {
             System.out.println("Senha invalida, não possui caractere especial!");
+        }else if (dupli(senhaArray) != true){
+            System.out.println("Senha inválida, possui vogais duplicadas seguidas!");
+        }else {
+            System.out.println("Senha válida!");
         }
 
     }
@@ -50,5 +52,15 @@ public class Main {
         Pattern especial = Pattern.compile("[!@#$%&*()]");
         Matcher matcher = especial.matcher(senha);
         return matcher.find();
+    }
+    public static boolean dupli(char[] senha){
+        boolean ver = true;
+        for(int i = 1; i < senha.lenght; i++){
+		    if(senha[i].equals(senha[i-1])){
+		        ver = false;
+		        break;
+            }
+        }
+        return ver;
     }
 }

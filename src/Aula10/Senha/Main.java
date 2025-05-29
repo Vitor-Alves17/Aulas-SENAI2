@@ -63,10 +63,13 @@ public class Main {
     }
     public static boolean dupli(char[] senha){
         boolean ver = true;
+
         for(int i = 1; i < senha.length; i++){
-		    if(senha[i] == (senha[i-1])){
-		        ver = false;
-		        break;
+            if(senha[i] == 'a' || senha[i] == 'e' || senha[i] == 'i' || senha[i] == 'o' || senha[i] == 'u' || senha[i] == 'A' || senha[i] == 'E' || senha[i] == 'I' || senha[i] == 'O' || senha[i] == 'U') {
+                if (senha[i] == (senha[i - 1])) {
+                    ver = false;
+                    break;
+                }
             }
         }
         return ver;
